@@ -24,11 +24,15 @@ def aggregate_cve_data(cve_id, github_token, serpapi_key):
     for pointer in github_data:
         github_links.append(pointer["url"])
 
+    combined = cve_data["references"] + news_links
+    unique_list = list(set(combined))
+
     # Aggregate all into one dictionary
     final_output = {
         "cve_data": cve_data,
         "github_pocs": github_links,
-        "news_articles": news_links
+        "news_articles": news_links,
+        "combined_links": unique_list
     }
 
     return final_output
