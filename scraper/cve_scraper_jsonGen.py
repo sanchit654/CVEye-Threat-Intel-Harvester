@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime
+from cve_scraper import fetch_cve_details as fcd
 
 def fetch_cve_details(cve_id):
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={cve_id}"
@@ -55,5 +56,6 @@ if __name__ == "__main__":
     cve_id = "CVE-2025-53770"
     raw_data = fetch_cve_details(cve_id)
     normalized_data = normalize_cve_data(raw_data)
+    print(fcd(cve_id))
     save_to_json(normalized_data, f"{cve_id}_normalized.json")
     print(f"✅ Normalized data saved to {cve_id}_normalized.json")

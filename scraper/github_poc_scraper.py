@@ -8,7 +8,7 @@ def search_github_for_cve(cve_id, github_token, per_page=5):
     }
 
     query = f"{cve_id} in:name,description,readme"
-    url = f"https://api.github.com/search/repositories?q={query}&sort=stars&order=desc&per_page={per_page}"
+    url = f"https://api.github.com/search/repositories?q={query}&sort=stars&order=desc"#&per_page={per_page}"
 
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
