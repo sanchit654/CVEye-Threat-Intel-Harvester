@@ -29,7 +29,7 @@ def search_github_for_cve(cve_id, github_token, per_page=5):
         }
         results.append(repo_info)
 
-    print("\nThe total GitHub PoCs are: ", len(results))
+    #print("\nThe total GitHub PoCs are: ", len(results))
 
     return results
 
